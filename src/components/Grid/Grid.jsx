@@ -1,15 +1,29 @@
-import Card from '../Card/Card'
-import style from "./grid.module.css"
+import { useMemo, useState } from "react";
+import Card from "../Card/Card";
+import TurnRender from "../Turn/TurnRender";
+import style from "./grid.module.css";
 
-function Grid({numberOfCard}) {
-  return <div className={style.gridWrapper}>
+function Grid({ numberOfCard }) {
+    const [turn , setTurn] = useState(false); 
+   
+  function play() {
+       setTurn(!turn); 
+  }
 
-  <div className={style.grid}>
-     {Array(numberOfCard).fill(<Card  />).map((ele, idx) => {
-         return <Card key={idx} />
-        })}
+  return (
+    <>
+    <TurnRender turn = {turn} />
+      <div className={style.gridWrapper}>
+        <div className={style.grid}>
+          {Array(numberOfCard)
+            .fill(<Card />)
+            .map((ele, idx) => {
+              return <Card key={idx} onPlay={play} />;
+            })}
         </div>
-   </div>
+      </div>
+    </>
+  );
 }
 
-export default Grid
+export default Grid;
