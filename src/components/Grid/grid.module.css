@@ -1,14 +1,34 @@
 .gridWrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .grid {
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.heading {
+  text-align: center;
+  color: antiquewhite;
+}
+
+.button {
+  background-color: #123;
+  color: antiquewhite;
+  border: 1px solid antiquewhite;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
 } 
 
-
+.winnerWrapper {
+    display: flex;
+    padding: 10px;
+    gap: 1rem;
+    justify-content: center;
+}

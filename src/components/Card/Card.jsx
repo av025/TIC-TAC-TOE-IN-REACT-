@@ -1,18 +1,21 @@
-import React from 'react'
-import Icon from '../Icons/Icon'
-import style from "./card.module.css"; 
+import React from "react";
+import Icon from "../Icons/Icon";
+import style from "./card.module.css";
 
-function Card({iconName, onPlay}) {
+function Card({ onPlay, player, index, gameEnd}) {
+   let icon  = <Icon />;
 
-    function playMove() {
-        onPlay()
-    }
-    
+  if (player === "X") {
+    icon = <Icon name="cross" />;
+  } else if (player === "O") {
+    icon = <Icon name="circle" />;
+  }
+
   return (
-    <div className={style.card} onClick={onPlay}>
-        <Icon name={iconName} />
+    <div className={style.card} onClick={() => !gameEnd && player === "" && onPlay(index)}>
+      {icon }
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;
